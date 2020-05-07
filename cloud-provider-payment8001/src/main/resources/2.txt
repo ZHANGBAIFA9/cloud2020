@@ -1,0 +1,32 @@
+server:
+  port: 8001 #服务端口
+spring:
+  application:
+    name: cloud-payment-service #服务名
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource  #当前数据源操作类型
+    #driver-class-name: org.gjt.mm.mysql.Driver #数据库驱动包 ，尚硅谷
+     driver-class-name: com.mysql.cj.jdbc.Driver #数据库驱动包
+    #url: jdbc:mysql://localhost:3306/cloud?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+     url: jdbc:mysql://localhost:3306/cloud?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: root
+​
+  devtools:
+    restart:
+      enabled: true #是否支持热部署
+​
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.springcloud.entity  #所有entity别名所在包
+​
+
+-------------------------------
+测试通了 http://localhost:8001/payment/get/2
+配置热部署：
+第一步，当前模块pom文件中相关依赖导入
+第二步，父亲模块中pom文件的相关plugin
+第三步，setting -> complier中四个checkbox 进行勾选
+第四步，快捷键 ctrl + shift + alt + / 进入选择 Registry 继续两个勾选checkbox
+
+
